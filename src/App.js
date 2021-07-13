@@ -1,7 +1,6 @@
 import React  from 'react';
 import './App.css';
 
-
 class App extends React.Component{
   constructor(props){
     super(props)
@@ -16,13 +15,14 @@ class App extends React.Component{
   }
 
   componentDidUpdate() {
-    console.log(this.text);
+    console.log(this.state.text);
   }
 
  handleChange = (event) => {
 //   console.log(event.target.value);
   this.setState({
     text: event.target.value
+    
   })
 }
 
