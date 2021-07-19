@@ -4,13 +4,12 @@ import './App.css';
 class App extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      isClicked: false,
+      input: "",
+      items: [],
+    };
   }
-//forgot or accidently deleted how to fix this error :(
-  this.state = {
-    isClicked: false,
-    input: "",
-    items: [],
-  };
 
 inputUpdate = (event) => {
   this.setState({ input: event.target.value });
@@ -22,6 +21,7 @@ formSubmit = (event) => {
     items: [...this.state.items, this.state.input],
     input: "",
   });
+  console.log("clicked")
 };
 
 render() {
@@ -35,9 +35,9 @@ render() {
             value={this.state.input}
             onChange={this.inputUpdate}
           ></input>
-          <Button variant="contained" onClick={this.formSubmit}>
+          <button onClick={this.formSubmit}>
             Add to List
-          </Button>
+          </button>
         </form>
 
         <ul>
@@ -49,6 +49,7 @@ render() {
       </div>
     );
   }
+}
 export default App;
 
 
