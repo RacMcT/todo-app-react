@@ -34,6 +34,7 @@ formSubmit = (event) => {
   copy.splice(foundIndex, 1);
   this.setState({items:copy})
 }
+// does not delete onClick- search examples to see where I did not input the onclick call/event listener
 
 
 render() {
