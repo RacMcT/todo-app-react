@@ -24,6 +24,18 @@ formSubmit = (event) => {
   console.log("clicked")
 };
 
+//Clear input once submitted- need to assign items an ID to be able to select an item and delete it! 
+// https://codesandbox.io/s/delete-an-item-from-an-array-onclick-class-qko1r?file=/src/App.js
+
+ handleClick = (id) => {
+  //find item by index
+  const foundIndex = this.state.items.findIndex((items) => items.id === id);
+  const copy = [... this.state.items];
+  copy.splice(foundIndex, 1);
+  this.setState({items:copy})
+}
+}
+
 render() {
   return (
     <div className="App">
@@ -49,7 +61,7 @@ render() {
       </div>
     );
   }
-}
+
 export default App;
 
 
@@ -64,5 +76,11 @@ export default App;
 // }
 
 // export default App;
+
+//Example from class to use:
+
+
+
+
 
 
