@@ -34,7 +34,7 @@ formSubmit = (event) => {
   copy.splice(foundIndex, 1);
   this.setState({items:copy})
 }
-}
+
 
 render() {
   return (
@@ -61,6 +61,7 @@ render() {
       </div>
     );
   }
+}
 
 export default App;
 
