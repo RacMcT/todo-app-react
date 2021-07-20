@@ -27,14 +27,46 @@ formSubmit = (event) => {
 //Clear input once submitted- need to assign items an ID to be able to select an item and delete it! 
 // https://codesandbox.io/s/delete-an-item-from-an-array-onclick-class-qko1r?file=/src/App.js
 
- handleClick = (id) => {
-  //find item by index
-  const foundIndex = this.state.items.findIndex((items) => items.id === id);
-  const copy = [... this.state.items];
-  copy.splice(foundIndex, 1);
-  this.setState({items:copy})
-}
+//  handleClick = (id) => {
+//   //find item by index
+//   const foundIndex = this.state.items.findIndex((items) => items.id === id);
+//   const copy = [... this.state.items];
+//   copy.splice(foundIndex, 1);
+//   this.setState({items:copy})
+
 // does not delete onClick- search examples to see where I did not input the onclick call/event listener
+
+componentDidUpdate() {
+  console.log(this.state.text)
+}
+
+onClickHandler = () => {
+  this.setState({
+    isClicked: true
+  })
+  console.log(this.state.isClicked)
+
+  this.setState({
+    items: [...this.state.items, { id: this.state.items.length + 1, input: this.state.input }],
+    isClicked: false,
+    input: ""
+  })
+}
+
+handleClick = (event, id) => {
+  console.log(id)
+  const foundIndex = this.state.items.findIndex(items => items.id === id)
+  const copy = [...this.state.items]
+  copy.splice(foundIndex, 1)
+  this.setState({ items: copy })
+  console.log(foundIndex)
+}
+
+handleChange = event => {
+  this.setState({
+    input: event.target.value
+  })
+}
 
 
 render() {
@@ -63,6 +95,7 @@ render() {
     );
   }
 }
+
 
 export default App;
 
