@@ -37,7 +37,7 @@ formSubmit = (event) => {
 // does not delete onClick- search examples to see where I did not input the onclick call/event listener
 
 componentDidUpdate() {
-  console.log(this.state.text)
+  console.log(this.state.input)
 }
 
 onClickHandler = () => {
@@ -83,6 +83,15 @@ render() {
           <button onClick={this.formSubmit}>
             Add to List
           </button>
+
+          {this.state.items.map(({ input, id }) => {
+              return (
+          <button onClick={event => this.handleClick(event, id)}>
+            Delete Item
+          </button>
+          )}
+            )
+              }
         </form>
 
         <ul>
